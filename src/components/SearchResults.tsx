@@ -52,8 +52,8 @@ const Results = () => {
 
       <Pagination
         data={homes}
-        pageLimit={5}
-        dataLimit={20}
+        pageLimit={3}
+        dataLimit={10}
       />
 
     </div>
