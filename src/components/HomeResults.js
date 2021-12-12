@@ -1,9 +1,14 @@
 import React from "react";
+import StarRatings from 'react-star-ratings'
 
 const HomeResults = ({ home }) => {
   const { name, address, ratingsInfo } = home;
   const { street, city, state, zip } = address;
-  const avgRating = ratingsInfo.combinedAvg;
+  let avgRating = ratingsInfo.combinedAvg;
+  if (avgRating === undefined) {
+    avgRating = ratingsInfo.average
+    console.log(avgRating)
+  }
   return (
     <div className="card results__card">
       <img src="/PlaceholderImage.png" className="card-img-top searh-results__image" alt={name}/>
@@ -12,7 +17,12 @@ const HomeResults = ({ home }) => {
         <p className="card-text">
           {street} {city}, {state} {zip}
         </p>
-          <div>{avgRating}</div>
+          <StarRatings
+            rating={(avgRating * 5)}
+            name='rating'
+            starDimension="2rem"
+            starSpacing="1rem"
+          />
       </div>
     </div>
   );
