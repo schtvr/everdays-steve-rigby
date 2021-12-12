@@ -20,12 +20,15 @@ export const searchSlice = createSlice({
     },
     choosePage: (state, action) => {
       state.page = action.payload
+    },
+    updateSort: (state, action) => {
+      state.sort = action.payload
     }
   }
 })
 
 
 
-export const { reset, nextPage, prevPage, choosePage } = searchSlice.actions;
+export const { reset, nextPage, prevPage, choosePage, updateSort } = searchSlice.actions;
 
 export default searchSlice.reducer
