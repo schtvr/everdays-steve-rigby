@@ -11,15 +11,21 @@ export const searchSlice = createSlice({
     reset: (state) => {
       state = {...state}
     },
-    update: (state, action) => {
-      state = {...state, ...action}
+    nextPage: (state) => {
+      console.log('ping', state)
+      state.page += 1
+    },
+    prevPage: (state) => {
+      state.page -= 1
+    },
+    choosePage: (state, action) => {
+      state.page = action.payload
     }
   }
 })
 
 
 
-export const { reset, update } = searchSlice.actions;
-export const searchSelector = (state) => state
+export const { reset, nextPage, prevPage, choosePage } = searchSlice.actions;
 
 export default searchSlice.reducer

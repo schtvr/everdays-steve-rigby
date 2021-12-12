@@ -27,7 +27,7 @@ const Results = () => {
   if (homes.length < 1) return <div>Empty list</div>
   return (
     <div>
-      { homes.map((home) => <HomeResults home={home} />) }
+      { homes.map((home, i) => <HomeResults home={home} key={i}/>) }
 
       <Pagination
         data={homes}

@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { reset, nextPage, prevPage, choosePage } from '../services/apiService';
 
 const Pagination = ({ data, pageLimit, dataLimit }) => {
   const [pages] = useState(Math.round(data.length / dataLimit));
   const [currentPage, setCurrentPage] = useState(1);
+  const { sort, page } = useSelector(state => state.search)
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.scrollTo({ behavior: 'smooth', top: '0px' });
@@ -10,15 +14,18 @@ const Pagination = ({ data, pageLimit, dataLimit }) => {
 
   function goToNextPage() {
     setCurrentPage((page) => page + 1);
+    dispatch(nextPage())
   }
 
   function goToPreviousPage() {
     setCurrentPage((page) => page - 1);
+    dispatch(prevPage())
   }
 
   function changePage(event) {
     const pageNumber = Number(event.target.textContent);
     setCurrentPage(pageNumber);
+    dispatch(choosePage(pageNumber))
   }
 
   const getPaginatedData = () => {
