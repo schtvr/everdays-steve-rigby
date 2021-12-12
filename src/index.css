@@ -31,14 +31,37 @@ code {
   flex-direction: row;
 }
 
+.dropdown {
+  display: flex;
+  flex-direction: row-reverse;
+}
 .searh-results__image {
   height: 9rem;
   width: 9rem;
   padding: 1rem;
+  border-radius: 15px;
+  object-fit: cover;
 }
 
 .card-body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.pagination {
+  display: flex;
+  align-self: center;
+  gap: 1rem;
+}
+.pagination-item {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 2rem;
+  border: none;
+}
+
+.active {
+  background-color: darkblue;
+  color: white;
 }

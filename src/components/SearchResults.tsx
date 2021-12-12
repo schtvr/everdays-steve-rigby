@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import HomeResults from './HomeResults';
 import Pagination from './Pagination';
 import { useAppSelector } from '../app/hooks';
+import SortDropDown from './SortDropDown';
 
 const Results = () => {
   const [error, setError] = useState(false);
@@ -46,6 +47,7 @@ const Results = () => {
   if (homes.length < 1) return <div>Empty list</div>
   return (
     <div className="search-results__container">
+      <SortDropDown />
       { homes.map((home, i) => <HomeResults home={home} key={i}/>) }
 
       <Pagination

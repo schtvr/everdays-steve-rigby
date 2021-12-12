@@ -41,36 +41,31 @@ const Pagination = ({ data, pageLimit, dataLimit }) => {
   };
 
   return (
-    <div>
       <div className="pagination">
-        {/* previous button */}
         <button
           onClick={goToPreviousPage}
-          className={`prev ${currentPage === 1 ? 'disabled' : ''}`}
+          className={`pagination-item ${currentPage === 1 ? 'disabled' : ''}`}
         >
-          prev
+          {'<'}
         </button>
 
-        {/* show page numbers */}
         {getPaginationGroup().map((item, index) => (
           <button
             key={index}
             onClick={changePage}
-            className={`paginationItem ${currentPage === item ? 'active' : null}`}
+            className={`pagination-item ${currentPage === item ? 'active' : null}`}
           >
             <span>{item}</span>
           </button>
         ))}
 
-        {/* next button */}
         <button
           onClick={goToNextPage}
-          className={`next ${currentPage === pages ? 'disabled' : ''}`}
+          className={`pagination-item ${currentPage === pages ? 'disabled' : ''}`}
         >
-          next
+          {'>'}
         </button>
       </div>
-    </div>
   );
 }
 
