@@ -6,8 +6,10 @@ import SortDropDown from './components/SortDropDown';
 function App() {
   return (
     <div className="App">
-      <SortDropDown />
-      <Results />
+      <div className="results-page__container">
+        <SortDropDown />
+        <Results />
+      </div>
     </div>
   );
 }

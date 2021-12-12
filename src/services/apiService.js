@@ -9,7 +9,7 @@ export const searchSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
-      state = {...state}
+      state = {...initialState}
     },
     nextPage: (state) => {
       console.log('ping', state)
@@ -23,6 +23,7 @@ export const searchSlice = createSlice({
     },
     updateSort: (state, action) => {
       state.sort = action.payload
+      state.page = 1;
     }
   }
 })

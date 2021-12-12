@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.results-page__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-results__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 1rem;
+  width: 40rem;
+}
+.results__card {
+  display: flex;
+  flex-direction: row;
+}
+
+.searh-results__image {
+  height: 9rem;
+  width: 9rem;
+  padding: 1rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

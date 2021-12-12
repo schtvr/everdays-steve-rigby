@@ -47,7 +47,7 @@ const Results = () => {
   if (!isLoaded) return <div>Loading...</div>
   if (homes.length < 1) return <div>Empty list</div>
   return (
-    <div>
+    <div className="search-results__container">
       { homes.map((home, i) => <HomeResults home={home} key={i}/>) }
 
       <Pagination
