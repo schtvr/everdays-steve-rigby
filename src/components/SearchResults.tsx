@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import HomeResults from './HomeResults';
+import Pagination from './Pagination';
 
 const Results = () => {
   const [error, setError] = useState(false);
@@ -29,6 +30,12 @@ const Results = () => {
       {
         homes.map((home) => <HomeResults home={home} />)
       }
+
+      <Pagination
+        data={homes}
+        pageLimit={5}
+        dataLimit={20}
+      />
     </div>
   )
 
