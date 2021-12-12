@@ -1,27 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import HomeResults from './HomeResults';
 
-const Results: React.FC = () => {
-  const [hasError, setHasError] = useState(false);
-  const [homes, setHomes] = useState({});
+const Results = () => {
+  const [error, setError] = useState(false);
+  const [homes, setHomes] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    console.log('ping')
     fetch('http://dev.everdays.com/v2/public/providers?state=mi')
       .then(res => res.json())
       .then(
         ({ data }) => {
           setIsLoaded(true);
-          console.log(data.homes);
+          setHomes(data.homes);
       },
         (error) => {
           setIsLoaded(true);
-          setHasError(error);
+          setError(error);
           console.log({error})
         })
   }, [])
-  return <></>
+  if (error) return <div>Error</div>;
+  if (!isLoaded) return <div>Loading...</div>
+  if (homes.length < 1) return <div>Empty list</div>
+  return (
+    <div>
+      {
+        homes.map((home) => <HomeResults home={home} />)
+      }
+    </div>
+  )
+
 }
 
 export default Results
