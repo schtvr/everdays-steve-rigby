@@ -27,15 +27,14 @@ const Results = () => {
   if (homes.length < 1) return <div>Empty list</div>
   return (
     <div>
-      {
-        homes.map((home) => <HomeResults home={home} />)
-      }
+      { homes.map((home) => <HomeResults home={home} />) }
 
       <Pagination
         data={homes}
         pageLimit={5}
         dataLimit={20}
       />
+
     </div>
   )
 
