@@ -5,9 +5,11 @@ const HomeResults = ({ home }) => {
   const { name, address, ratingsInfo } = home;
   const { street, city, state, zip } = address;
   let avgRating = ratingsInfo.combinedAvg;
+
+  // quick check to enusre the correct data is displayed
   if (avgRating === undefined) {
     avgRating = ratingsInfo.average
-    console.log(avgRating)
+    if (avgRating === undefined) avgRating = 0
   }
   return (
     <div className="card results__card">
