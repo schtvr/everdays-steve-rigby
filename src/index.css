@@ -35,6 +35,7 @@ code {
 .dropdown {
   display: flex;
   flex-direction: row-reverse;
+  padding-top: 80px;
 }
 .searh-results__image {
   height: 9rem;

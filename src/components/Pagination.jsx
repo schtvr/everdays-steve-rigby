@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { nextPage, prevPage, choosePage } from '../services/apiService';
 
 const Pagination = ({ data, pageLimit, dataLimit }) => {
@@ -26,12 +26,6 @@ const Pagination = ({ data, pageLimit, dataLimit }) => {
     setCurrentPage(pageNumber);
     dispatch(choosePage(pageNumber))
   }
-
-  const getPaginatedData = () => {
-    const startIndex = currentPage * dataLimit - dataLimit;
-    const endIndex = startIndex + dataLimit;
-    return data.slice(startIndex, endIndex);
-  };
 
   const getPaginationGroup = () => {
     // sets which page numbers we display

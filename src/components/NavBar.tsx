@@ -1,16 +1,15 @@
-import React from 'react'
-
+import React from "react";
 
 const NavBar = () => {
-  return (
-    <nav className="navbar navbar-light bg-light">
-  <div className="container">
-    <a className="navbar-brand" href="#">
-      <img src="/LogoDesktop.png" alt="Everdays" height="24" />
-    </a>
-  </div>
-</nav>
-  )
-}
 
-export default NavBar
+  return (
+    <nav className="navbar navbar-expand-md bg-light fixed-top">
+      <div className="container">
+
+          <img src="/LogoDesktop.png" alt="Everdays" height="24" />
+      </div>
+    </nav>
+  );
+};
+
+export default NavBar;
